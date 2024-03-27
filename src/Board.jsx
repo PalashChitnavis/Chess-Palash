@@ -7,12 +7,15 @@ const Board = ({ board }) => {
 
     return { x, y };
   }
-  function isBlack(id) {}
+  function isBlack(id) {
+    const { x, y } = getXYPos(id);
+    return (x + y) % 2 === 1;
+  }
   return (
     <div className="w-[100%] h-[100%] flex flex-wrap">
       {board.flat().map((piece, id) => (
         <div key={id} className="w-[12.5%] h-[12.5%]">
-          {id}
+          {isBlack(id)}
           <BoardSquare piece={piece} black={isBlack(id)} />
         </div>
       ))}
