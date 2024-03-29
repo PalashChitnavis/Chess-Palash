@@ -52,6 +52,7 @@ export function possibleMoves(square) {
     document.getElementById(place).classList.remove("highlighted");
   });
   const moves = chess.moves({ square: square, verbose: true });
+
   moves.forEach((move) => {
     possiblePlaces.push(move.to);
     document.getElementById(move.to).classList.add("highlighted");
@@ -111,4 +112,11 @@ export function setPiece(position, type) {
 
 export function getPiecesInfo() {
   return pieces;
+}
+
+export function boardInfo() {
+  const turn = chess.turn();
+  const history = chess.history({ verbose: true });
+
+  return { turn, history };
 }
