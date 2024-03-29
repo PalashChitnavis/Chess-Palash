@@ -2,6 +2,7 @@
 /* eslint-disable react/prop-types */
 import { useDrag, DragPreviewImage } from "react-dnd";
 import { possibleMoves } from "./Game";
+import { useState } from "react";
 const Piece = ({ piece, position }) => {
   const { type, color } = piece;
   const [{ isDragging }, drag, preview] = useDrag({
